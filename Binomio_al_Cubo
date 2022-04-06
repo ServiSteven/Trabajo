@@ -1,0 +1,26 @@
+package Tarea;
+import java.util.Scanner;
+public class BinomioAlCubo
+{
+
+	public static void main(String[] args)
+	{
+		Scanner tot=new Scanner (System.in);
+		int coef, ent, f1, f2, f3, f4;
+		System.out.println("Ingresa el coeficiente de la literal");
+		coef=tot.nextInt();
+		System.out.println("Ingresa la lietaral del binomio");
+		char x=tot.next().charAt(0);
+		System.out.println("Ingresa el entero (agrega el signo correspondiente si es negativo o positivo)");
+		ent=tot.nextInt();
+		f1= coef*coef*coef;
+		String f11=String.valueOf(f1);
+		f2=(coef*coef*ent*3);
+		String f22=String.valueOf(f2);
+		f3=+(3*coef*ent*ent);
+		String f33=String.valueOf(f3);
+		f4=ent*ent*ent;
+		String f44=String.valueOf(f4);
+		System.out.println("El resultado es: "+f11+x+"^3"+f22+x+"^2"+"+"+f33+x+f44);
+	}	
+}
