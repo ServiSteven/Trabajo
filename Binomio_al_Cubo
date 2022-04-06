@@ -14,12 +14,12 @@ public class BinomioAlCubo
 		System.out.println("Ingresa el entero (agrega el signo correspondiente si es negativo o positivo)");
 		ent=tot.nextInt();
 		f1= coef*coef*coef;
-		String f11=String.valueOf(f1);
 		f2=(coef*coef*ent*3);
-		String f22=String.valueOf(f2);
 		f3=+(3*coef*ent*ent);
-		String f33=String.valueOf(f3);
 		f4=ent*ent*ent;
+		String f11=String.valueOf(f1);
+		String f22=String.valueOf(f2);
+		String f33=String.valueOf(f3);
 		String f44=String.valueOf(f4);
 		System.out.println("El resultado es: "+f11+x+"^3"+f22+x+"^2"+"+"+f33+x+f44);
 	}	
