@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class pract4
+{
+
+	public static void main(String[] args)
+	{
+		Scanner x=new Scanner (System.in);
+		System.out.println("Ingresa el número de alumnos a calificar");
+		int alum=x.nextInt();
+		int alum1=alum+1;
+		int gato[][]=new int [8][alum1];
+		
+		for (int f=0; f<8;f++)
+		{
+			for (int c=0; c<alum;c++)
+			{
+				System.out.println("Ingresa el número para la posición");
+				gato[f][c]=x.nextInt();
+			}
+		}
+		
+		int Suma=0, Prom=0;
+
+		System.out.println("");
+		
+		System.out.println("Los números ingresados en la matriz son los siguientes: ");
+		for (int f=0; f<8;f++)
+		{
+			for (int c=0; c<alum;c++)
+			{
+				Suma=Suma+gato[f][c];
+				System.out.print(gato[f][c]+" ");
+			}
+			Prom=Suma/alum;
+			System.out.print(Prom);
+			Suma=0;
+			System.out.println("");
+		}
+	}
+}
