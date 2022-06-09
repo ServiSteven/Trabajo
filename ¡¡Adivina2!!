@@ -1,0 +1,100 @@
+package Tarea;
+
+import java.util.*;
+
+public class Adivina2
+{
+	static String Nombre;
+	static int NoTabla, y=0;
+	static int NoMulti;
+	static Byte Volver;
+	static int Multi=(int) (Math.random()*1000);
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner (System.in);
+		do {
+		Bienvenida();
+		System.out.println("");
+		Reto();
+		System.out.println("");
+		NombreClave(sc);
+		System.out.println("");
+		Notabla(sc);
+		System.out.println("");
+		NoMulti(sc);
+		System.out.println("");
+		if (NoTabla*NoMulti==Multi)
+		{
+			Ganador();
+			Volver(sc);
+		}
+		else
+		{
+			Perdedor();
+			Volver(sc);
+		}
+		} while (Volver==1);
+	}
+	
+	
+	public static void Bienvenida()
+	{
+		System.out.println("*****-------------------¬");
+		System.out.println("*	¡¡Adivina 2!!	|");
+		System.out.println("*****--------------------");
+	}
+	public static void Reto()
+	{
+		System.out.println("*****-------------------------------------------------------------------¬");
+		System.out.println("*	Adivina los números que multiplicados den el resultado "+Multi+"	|");
+		System.out.println("*		(Número de tabla y Número a multiplicar)		|");
+		System.out.println("*****--------------------------------------------------------------------");
+	}
+	public static void NombreClave(Scanner nom)
+	{
+		System.out.println("*****-----------------------------------¬");
+		System.out.println("*	Ingresa tu nombre clave		|");
+		System.out.println("*****------------------------------------");
+		Nombre=nom.next();
+	}
+	public static void Notabla(Scanner NumTab)
+	{
+		System.out.println("*****-----------------------------------¬");
+		System.out.println("*	Introduce el Número de Tabla:	|");
+		System.out.println("*****------------------------------------");
+		NoTabla=NumTab.nextInt();
+	}
+	public static void NoMulti(Scanner NumMul)
+	{
+		System.out.println("*****-------------------------------------------¬");
+		System.out.println("*	Introduce el Número a Multiplicar:	|");
+		System.out.println("*****--------------------------------------------");
+		NoMulti=NumMul.nextInt();
+	}
+	public static void Ganador()
+	{
+		System.out.println("*****---------------------------------------------------------------------------------------------------¬");
+		System.out.println("*	¡¡Felicitaciones "+Nombre+"!! Has adivinado correctamente las respuestas, Enhorabuena!!	|");
+		System.out.println("*****----------------------------------------------------------------------------------------------------");
+	}
+	public static void Perdedor()
+	{
+		System.out.println("*****-------------------------------------------¬");
+		System.out.println("*	¡¡Estuviste cerca!! Vuelve a intetarlo	|");
+		System.out.println("*****--------------------------------------------");
+	}
+	public static void Volver(Scanner Desición)
+	{
+		System.out.println("*****----------------------------¬");
+		System.out.println("*	¿Volver a jugar?	|");
+		System.out.println("*	(S=1/N=0)		|");
+		System.out.println("*****-----------------------------");
+		Volver=Desición.nextByte();
+	}
+	public static void Agradecimiento()
+	{
+		System.out.println("*****---------------------------¬");
+		System.out.println("*	Gracias por jugar <3	|");
+		System.out.println("*****----------------------------");
+	}
+}
