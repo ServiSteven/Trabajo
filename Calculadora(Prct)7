@@ -1,0 +1,152 @@
+package Practica_7;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Calculadora extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField Cant1;
+	private JTextField Cant2;
+	private JTextField Resul;
+
+	
+	public Calculadora() {
+		setTitle("Suma");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel Can1 = new JLabel("Cantidad 1");
+		Can1.setFont(new Font("Sylfaen", Font.PLAIN, 18));
+		Can1.setBounds(10, 11, 79, 45);
+		contentPane.add(Can1);
+		
+		JLabel Can2 = new JLabel("Cantidad 2");
+		Can2.setFont(new Font("Sylfaen", Font.PLAIN, 18));
+		Can2.setBounds(10, 79, 79, 45);
+		contentPane.add(Can2);
+		
+		JLabel Res = new JLabel("Resultado");
+		Res.setFont(new Font("Sylfaen", Font.PLAIN, 18));
+		Res.setBounds(10, 205, 79, 45);
+		contentPane.add(Res);
+		
+		Cant1 = new JTextField();
+		Cant1.setBounds(125, 23, 86, 20);
+		contentPane.add(Cant1);
+		Cant1.setColumns(10);
+		
+		Cant2 = new JTextField();
+		Cant2.setBounds(125, 91, 86, 20);
+		contentPane.add(Cant2);
+		Cant2.setColumns(10);
+		
+		Resul = new JTextField();
+		Resul.setEditable(false);
+		Resul.setBounds(125, 217, 86, 20);
+		contentPane.add(Resul);
+		Resul.setColumns(10);
+		
+		JButton Sum = new JButton("Sumar");
+		Sum.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				float c1=0,c2=0, res=0;
+				//Obtener contenido de las cajas de texto
+				c1=Float.parseFloat(Cant1.getText());
+				c2=Float.parseFloat(Cant2.getText());
+				res=c1+c2;
+				Resul.setText(String.valueOf(res));
+			}
+		});
+		Sum.setBounds(10, 135, 89, 23);
+		contentPane.add(Sum);
+		
+		JButton btnSalida = new JButton("Salida");
+		btnSalida.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				int o;
+				o=JOptionPane.showConfirmDialog(null, "¿Realmente quieres salir del programa?");
+				if (o==0)
+				{
+					System.exit(0);
+				}
+			}
+		});
+		btnSalida.setBounds(304, 54, 89, 23);
+		contentPane.add(btnSalida);
+		
+		JButton btnRestar = new JButton("Restar");
+		btnRestar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				float c1=0,c2=0, res=0;
+				c1=Float.parseFloat(Cant1.getText());
+				c2=Float.parseFloat(Cant2.getText());
+				res=c1-c2;
+				Resul.setText(String.valueOf(res));
+			}
+		});
+		btnRestar.setBounds(10, 171, 89, 23);
+		contentPane.add(btnRestar);
+		
+		JButton btnMultiplicar = new JButton("Multiplicar");
+		btnMultiplicar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				float c1=0,c2=0, res=0;
+				c1=Float.parseFloat(Cant1.getText());
+				c2=Float.parseFloat(Cant2.getText());
+				res=c1*c2;
+				Resul.setText(String.valueOf(res));
+			}
+		});
+		btnMultiplicar.setBounds(119, 135, 105, 23);
+		contentPane.add(btnMultiplicar);
+		
+		JButton btnDividir = new JButton("Dividir");
+		btnDividir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				float c1=0,c2=0, res=0;
+				c1=Float.parseFloat(Cant1.getText());
+				c2=Float.parseFloat(Cant2.getText());
+				res=c1/c2;
+				Resul.setText(String.valueOf(res));
+			}
+		});
+		btnDividir.setBounds(125, 171, 89, 23);
+		contentPane.add(btnDividir);
+		
+		JButton btnRediduo = new JButton("Residuo");
+		btnRediduo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				float c1=0,c2=0, res=0;
+				c1=Float.parseFloat(Cant1.getText());
+				c2=Float.parseFloat(Cant2.getText());
+				res=c1%c2;
+				Resul.setText(String.valueOf(res));
+			}
+		});
+		btnRediduo.setBounds(234, 153, 89, 23);
+		contentPane.add(btnRediduo);
+	}
+}
