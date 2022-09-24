@@ -1,0 +1,80 @@
+package Practica_7;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Portada extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Portada frame = new Portada();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Portada() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\CBTis\\Downloads\\4565685_2423231.jpg"));
+		setForeground(new Color(0, 0, 0));
+		setTitle("Portada");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(95, 158, 160));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\CBTis\\Downloads\\4565685_2423231.jpg"));
+		lblNewLabel.setBounds(-77, -82, 253, 343);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblInicio = new JLabel("Presiona el bot\u00F3n para ingresar");
+		lblInicio.setFont(new Font("Eras Medium ITC", Font.PLAIN, 16));
+		lblInicio.setBounds(186, 86, 253, 47);
+		contentPane.add(lblInicio);
+		
+		JButton btnCalculadora = new JButton("Calculadora");
+		btnCalculadora.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				//Crear instancia
+				Calculadora cal=new Calculadora();
+				//Cerrar todas las ventanas activas
+				dispose();
+				//Ver la ventana activa
+				cal.setVisible(true);
+			}
+		});
+		btnCalculadora.setBounds(244, 154, 107, 23);
+		contentPane.add(btnCalculadora);
+		
+		
+	}
+}
