@@ -1,0 +1,200 @@
+package Tarea;
+
+import java.util.Scanner;
+
+public class Productos {
+
+	public static void main(String[] args)
+	{
+		Scanner tec=new Scanner (System.in);
+		String Pro1,Pro2,Pro3,Pro4,Pro5;
+		float cant1,cant2,cant3,cant4,cant5;
+		float cost1,cost2,cost3,cost4,cost5;
+		float iva1,iva2,iva3,iva4,iva5;
+		float tot1,tot2,tot3,tot4,tot5, totgen=0;
+		int a,b,c,d,e;
+		
+		System.out.println("--------------------1º Producto--------------------");
+		System.out.println("Ingresa el nombre del producto");
+		Pro1=tec.nextLine();
+		System.out.println("Ingresa el precio del producto");
+		cost1=tec.nextFloat();
+		System.out.println("Ingresa la cantidad de productos");
+		cant1=tec.nextFloat();
+		System.out.println("Escribe '1' si los productos NO son alimentos; si lo son, escribe '2'");
+		a=tec.nextInt();
+		if (a==1)
+		{
+			iva1=(float) ((cost1*cant1)*0.16);
+			tot1=(cost1*cant1)+iva1;
+		}
+		else
+		{
+			iva1=0;
+			tot1=cost1*cant1;
+		}
+		totgen=totgen+tot1;
+		
+		System.out.println("");
+		System.out.println(Pro1);
+		System.out.println(cost1);
+		System.out.println(cant1);
+		System.out.println(iva1);
+		System.out.println(tot1);
+		System.out.println(totgen);
+		
+		/*
+		 * 
+		 */
+		
+		System.out.println("");
+		System.out.println("--------------------2º Producto--------------------");
+		System.out.println("Ingresa el nombre del producto");
+		tec.nextLine();
+		Pro2=tec.nextLine();
+		System.out.println("Ingresa el precio del producto");
+		cost2=tec.nextFloat();
+		System.out.println("Ingresa la cantidad de productos");
+		cant2=tec.nextFloat();
+		System.out.println("Escribe '1' si los productos NO son alimentos; si lo son, escribe '2'");
+		b=tec.nextInt();
+		if (b==1)
+		{
+			iva2=(float) ((cost2*cant2)*0.16);
+			tot2=(cost2*cant2)+iva2;
+		}
+		else
+		{
+			iva2=0;
+			tot2=cost2*cant2;
+		}
+		totgen=totgen+tot2;
+		
+		System.out.println("");
+		System.out.println(Pro2);
+		System.out.println(cost2);
+		System.out.println(cant2);
+		System.out.println(iva2);
+		System.out.println(tot2);
+		System.out.println(totgen);
+		
+		/*
+		 * 
+		 */
+		
+		System.out.println("");
+		System.out.println("--------------------3º Producto--------------------");
+		System.out.println("Ingresa el nombre del producto");
+		tec.nextLine();
+		Pro3=tec.nextLine();
+		System.out.println("Ingresa el precio del producto");
+		cost3=tec.nextFloat();
+		System.out.println("Ingresa la cantidad de productos");
+		cant3=tec.nextFloat();
+		System.out.println("Escribe '1' si los productos NO son alimentos; si lo son, escribe '2'");
+		c=tec.nextInt();
+		if (c==1)
+		{
+			iva3=(float) ((cost3*cant3)*0.16);
+			tot3=(cost3*cant3)+iva3;
+		}
+		else
+		{
+			iva3=0;
+			tot3=cost3*cant3;
+		}
+		totgen=totgen+tot3;
+		
+		System.out.println("");
+		System.out.println(Pro3);
+		System.out.println(cost3);
+		System.out.println(cant3);
+		System.out.println(iva3);
+		System.out.println(tot3);
+		System.out.println(totgen);
+		
+		/*
+		 * 
+		 */
+		
+		System.out.println("");
+		System.out.println("--------------------4º Producto--------------------");
+		System.out.println("Ingresa el nombre del producto");
+		tec.nextLine();
+		Pro4=tec.nextLine();
+		System.out.println("Ingresa el precio del producto");
+		cost4=tec.nextFloat();
+		System.out.println("Ingresa la cantidad de productos");
+		cant4=tec.nextFloat();
+		System.out.println("Escribe '1' si los productos NO son alimentos; si lo son, escribe '2'");
+		d=tec.nextInt();
+		if (d==1)
+		{
+			iva4=(float) ((cost4*cant4)*0.16);
+			tot4=(cost4*cant4)+iva4;
+		}
+		else
+		{
+			iva4=0;
+			tot4=cost4*cant4;
+		}
+		totgen=totgen+tot4;
+		
+		System.out.println("");
+		System.out.println(Pro4);
+		System.out.println(cost4);
+		System.out.println(cant4);
+		System.out.println(iva4);
+		System.out.println(tot4);
+		System.out.println(totgen);
+		
+		/*
+		 * 
+		 */
+		
+		System.out.println("");
+		System.out.println("--------------------5º Producto--------------------");
+		System.out.println("Ingresa el nombre del producto");
+		tec.nextLine();
+		Pro5=tec.nextLine();
+		System.out.println("Ingresa el precio del producto");
+		cost5=tec.nextFloat();
+		System.out.println("Ingresa la cantidad de productos");
+		cant5=tec.nextFloat();
+		System.out.println("Escribe '1' si los productos NO son alimentos; si lo son, escribe '2'");
+		e=tec.nextInt();
+		if (e==1)
+		{
+			iva5=(float) ((cost5*cant5)*0.16);
+			tot5=(cost5*cant5)+iva5;
+		}
+		else
+		{
+			iva5=0;
+			tot5=cost5*cant5;
+		}
+		totgen=totgen+tot5;
+		
+		System.out.println("");
+		System.out.println(Pro5);
+		System.out.println(cost5);
+		System.out.println(cant5);
+		System.out.println(iva5);
+		System.out.println(tot5);
+		System.out.println(totgen);
+		
+		/*
+		 * 
+		 */
+		
+		String NomPro[]= {Pro1,Pro2,Pro3,Pro4,Pro5};
+		
+		System.out.println("");
+		System.out.println("");
+		System.out.println(Pro1);
+		System.out.println(Pro2);
+		System.out.println(Pro3);
+		System.out.println(Pro4);
+		System.out.println(Pro5);
+	}
+}
