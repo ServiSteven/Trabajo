@@ -1,0 +1,80 @@
+package Tarea;
+
+import java.util.Scanner;
+
+public class Productos_Ciclos {
+
+	public static void main(String[] args)
+	{
+		Scanner tec=new Scanner (System.in);
+		
+		
+		String Pro[]=new String [5];
+		int cost[]=new int [5];
+		int cant[]=new int [5];
+		int iva[]=new int [5];
+		int tot[]=new int [5];
+		float iv=(float) 0.16, totgen=0; 
+		int a, p=0, ca=0, co=0, v=0, t=0;
+		
+		for (int i=1;i<=5;i++)
+		{
+			tec.nextLine();
+			System.out.println("--------------------"+i+"º Producto--------------------");
+			System.out.println("Ingresa el nombre del producto");
+			Pro[p]=tec.nextLine();
+			System.out.println("Ingresa el precio del producto");
+			cost[co]=(int)tec.nextFloat();
+			System.out.println("Ingresa la cantidad de productos");
+			cant[ca]=(int)tec.nextFloat();
+			System.out.println("Escribe '1' si los productos NO son alimentos; si lo son, escribe '2'");
+			a=tec.nextInt();
+			if (a==1)
+			{
+				iva[v]=(int) ((cost[co]*cant[ca])*iv);
+				tot[t]=(cost[co]*cant[ca])+iva[v];
+			}
+			else
+			{
+				iva[v]=0;
+				tot[t]=cost[co]*cant[ca];
+			}
+			totgen=totgen+tot[t];
+			System.out.println("");
+			p++;
+			co++;
+			ca++;
+			v++;
+			t++;
+		}
+		
+		p=0;
+		co=0;
+		ca=0;
+		v=0;
+		t=0;
+		
+		for (int i=1;i<=5;i++)
+		{
+			System.out.println("--------------------"+i+"º Producto--------------------");
+			System.out.println("Datos del producto "+i);
+			tec.nextLine();
+			System.out.println("Nombre: "+Pro[p]);
+			System.out.println("Precio unitario: "+cost[co]);
+			System.out.println("Cantidad: "+cant[ca]);
+			System.out.println("Precio con IVA: "+iva[v]);
+			System.out.println("Total: "+tot[t]);
+			System.out.println("");
+			p++;
+			co++;
+			ca++;
+			v++;
+			t++;
+		}
+		
+		System.out.println("");
+		System.out.println("Total general: "+totgen);
+		
+	}
+
+}
