@@ -1,0 +1,276 @@
+package pro2;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import java.util.Date;
+import java.util.Calendar;
+import javax.swing.SpinnerListModel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+
+public class Prestaciones extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField Cpres;
+	private JTextField Ctas;
+	private JTextField Cpi;
+	private JTextField Cplaz;
+	private JTextField Cdes;
+		
+	public float Pres, Tint, PI, plazM,guar;
+	
+	public Prestaciones() {
+		setTitle("Prestaciones");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 470, 405);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel.setBounds(10, 11, 434, 75);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Clave del empleado");
+		lblNewLabel.setBounds(10, 11, 132, 23);
+		panel.add(lblNewLabel);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		textField.setBounds(136, 14, 56, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("Fecha");
+		lblNewLabel_1.setBounds(207, 14, 42, 17);
+		panel.add(lblNewLabel_1);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerDateModel(new Date(1666069200000L), null, null, Calendar.DAY_OF_YEAR));
+		spinner.setBounds(263, 14, 112, 20);
+		panel.add(spinner);
+		
+		JLabel lblNewLabel_2 = new JLabel("Nombre del empleado");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(10, 45, 147, 14);
+		panel.add(lblNewLabel_2);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(163, 45, 241, 20);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel_1.setBounds(10, 97, 434, 143);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel fasdfdfaf = new JLabel("Cantidad de pr\u00E9stamo  $");
+		fasdfdfaf.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		fasdfdfaf.setBounds(10, 11, 165, 19);
+		panel_1.add(fasdfdfaf);
+		
+		Cpres = new JTextField();
+		Cpres.setBounds(167, 10, 97, 20);
+		panel_1.add(Cpres);
+		Cpres.setColumns(10);
+		
+		JLabel dfs = new JLabel("Tasa de inter\u00E9s  %");
+		dfs.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		dfs.setBounds(10, 36, 134, 20);
+		panel_1.add(dfs);
+		
+		JSpinner Stas = new JSpinner();
+		Stas.setModel(new SpinnerNumberModel(1, 1, 12, 1));
+		Stas.setBounds(127, 36, 55, 20);
+		panel_1.add(Stas);
+		
+		JLabel lblNewLabel_5 = new JLabel("Plazo de pago");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_5.setBounds(10, 61, 85, 26);
+		panel_1.add(lblNewLabel_5);
+		
+		JSpinner Splaz = new JSpinner();
+		Splaz.setModel(new SpinnerNumberModel(1, 1, 12, 1));
+		Splaz.setBounds(105, 67, 47, 20);
+		panel_1.add(Splaz);
+		
+		JLabel lblNewLabel_6 = new JLabel("Meses");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_6.setBounds(167, 67, 46, 14);
+		panel_1.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("Cantidad de inter\u00E9s");
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_7.setBounds(274, 29, 126, 14);
+		panel_1.add(lblNewLabel_7);
+		
+		Ctas = new JTextField();
+		Ctas.setEditable(false);
+		Ctas.setBounds(290, 49, 100, 20);
+		panel_1.add(Ctas);
+		Ctas.setColumns(10);
+		
+		JLabel lblNewLabel_8 = new JLabel("$");
+		lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_8.setBounds(274, 50, 24, 14);
+		panel_1.add(lblNewLabel_8);
+		
+		JLabel lblNewLabel_9 = new JLabel("Pr\u00E9stamo + Inter\u00E9s");
+		lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_9.setBounds(268, 80, 134, 20);
+		panel_1.add(lblNewLabel_9);
+		
+		JLabel lblNewLabel_8_1 = new JLabel("$");
+		lblNewLabel_8_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_8_1.setBounds(274, 111, 24, 14);
+		panel_1.add(lblNewLabel_8_1);
+		
+		Cpi = new JTextField();
+		Cpi.setEditable(false);
+		Cpi.setColumns(10);
+		Cpi.setBounds(290, 110, 100, 20);
+		panel_1.add(Cpi);
+		
+		JLabel lblNewLabel_10 = new JLabel("Pago mensual");
+		lblNewLabel_10.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_10.setBounds(10, 111, 95, 19);
+		panel_1.add(lblNewLabel_10);
+		
+		JLabel lblNewLabel_8_2 = new JLabel("$");
+		lblNewLabel_8_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_8_2.setBounds(105, 112, 24, 14);
+		panel_1.add(lblNewLabel_8_2);
+		
+		Cplaz = new JTextField();
+		Cplaz.setEditable(false);
+		Cplaz.setColumns(10);
+		Cplaz.setBounds(121, 111, 100, 20);
+		panel_1.add(Cplaz);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		panel_2.setBounds(10, 251, 434, 80);
+		contentPane.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lblNewLabel_11 = new JLabel("Tipo de n\u00F3mina");
+		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_11.setBounds(10, 11, 106, 17);
+		panel_2.add(lblNewLabel_11);
+		
+		JLabel lblNewLabel_12 = new JLabel("Cantidad de descuento en n\u00F3mina  $");
+		lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_12.setBounds(10, 46, 240, 20);
+		panel_2.add(lblNewLabel_12);
+		
+		Cdes = new JTextField();
+		Cdes.setBounds(240, 48, 106, 20);
+		panel_2.add(Cdes);
+		Cdes.setColumns(10);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0)
+			{
+				int o;
+				o=comboBox.getSelectedIndex();
+				switch (o)
+				{
+				case (0):
+					break;
+				
+				case (1):
+					guar=plazM/4;Cdes.setText(String.valueOf(guar));
+					break;
+					
+				case (2):
+					guar=plazM/2;Cdes.setText(String.valueOf(guar));
+					break;
+					
+				case (3):
+					guar=plazM;Cdes.setText(String.valueOf(guar));
+					break;
+				}
+			}
+		});
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Elige una opci\u00F3n:", "Semanal", "Quincenal", "Mensual"}));
+		comboBox.setBounds(126, 11, 131, 20);
+		panel_2.add(comboBox);
+		
+		JButton btnNewButton = new JButton("Calcular");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				int Tas=(Integer) Stas.getValue();
+				int Plaz=(Integer) Splaz.getValue();
+				Pres=Float.parseFloat(Cpres.getText());
+				Tint=((Pres*Tas)/100);
+				PI=Pres+Tint;
+				plazM=PI/Plaz;
+				Ctas.setText(String.valueOf(Tint));
+				Cpi.setText(String.valueOf(PI));
+				Cplaz.setText(String.valueOf(plazM));
+				
+			}
+		});
+		btnNewButton.setBounds(186, 337, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Menu");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				Menu me=new Menu();
+				dispose();
+				me.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(20, 337, 89, 23);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Salir");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				int o=JOptionPane.showConfirmDialog(null, "¿Realmente deseas salir?");
+				if (o==0)
+				{
+					System.exit(0);
+				}
+			}
+		});
+		btnNewButton_2.setBounds(344, 337, 89, 23);
+		contentPane.add(btnNewButton_2);
+	}
+}
