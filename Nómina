@@ -1,0 +1,338 @@
+package pro2;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import java.util.Date;
+import java.util.Calendar;
+import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+
+public class Nomina extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField Csd;
+	private JTextField Cst;
+	private JTextField Cpp;
+	private JTextField Cpa;
+	private JTextField Cdes;
+	private JTextField totPer;
+	private JTextField Cisr;
+	private JTextField Cimss;
+	private JTextField Cin;
+	private JTextField Cfon;
+	private JTextField totDed;
+
+	public float sd=0,dias=0,st=0,pp=0,pa=0,des=0,isr,imss,info,fondo,Persep=0,Deduc=0,SuelPag=0;
+	private JTextField Cpag;
+	
+	public Nomina() {
+		setTitle("Crear N\u00F3mina");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 510, 376);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Nombre del empleado");
+		lblNewLabel.setBounds(10, 11, 125, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("R.F.C.");
+		lblNewLabel_1.setBounds(10, 36, 46, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setBounds(145, 8, 234, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(70, 33, 193, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Departamento");
+		lblNewLabel_2.setBounds(10, 61, 97, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		JComboBox depto = new JComboBox();
+		depto.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) 
+			{
+				String op;
+				op=depto.getSelectedItem().toString();
+				if (op==" ") {sd=0;st=0; Csd.setText(String.valueOf(sd));Cst.setText("");}
+				if (op=="Contabilidad") {sd=300; Csd.setText(String.valueOf(sd));}
+				if (op=="Administracion") {sd=300; Csd.setText(String.valueOf(sd));}
+				if (op=="Intendencia") {sd=150; Csd.setText(String.valueOf(sd));}
+				if (op=="Recursos Humanos") {sd=200; Csd.setText(String.valueOf(sd));}
+				if (op=="Finanzas") {sd=350; Csd.setText(String.valueOf(sd));}
+				if (op=="Computacion") {sd=400; Csd.setText(String.valueOf(sd));}
+			}
+		});
+		depto.setModel(new DefaultComboBoxModel(new String[] {"-", "Contabilidad", "Administracion", "Intendencia", "Recursos Humanos", "Finanzas", "Computacion"}));
+		depto.setBounds(117, 57, 131, 22);
+		contentPane.add(depto);
+		
+		JLabel lblNewLabel_3 = new JLabel("Tipo de pago");
+		lblNewLabel_3.setBounds(259, 61, 90, 14);
+		contentPane.add(lblNewLabel_3);
+		
+		JComboBox TiPa = new JComboBox();
+		TiPa.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) 
+			{
+				int o;
+				o=TiPa.getSelectedIndex();
+				switch (o)
+				{
+				case (0):
+					st=0;Cst.setText("");
+					break;
+				
+				case (1):
+					st=7*sd;Cst.setText(String.valueOf(st));
+					break;
+					
+				case (2):
+					st=15*sd;Cst.setText(String.valueOf(st));
+					break;
+					
+				case (3):
+					st=30*sd;Cst.setText(String.valueOf(st));
+					break;
+				}
+				Cst.setText(String.valueOf(st));
+				pp=(float) (st*0.10);
+				Cpp.setText(String.valueOf(pp));
+				pa=(float) (st*0.12);
+				Cpa.setText(String.valueOf(pa));
+				des=(float) (st*0.15);
+				Cdes.setText(String.valueOf(des));
+				
+				isr=(float) (st*0.15);
+				Cisr.setText(String.valueOf(isr));
+				imss=(float) (st*0.12);
+				Cimss.setText(String.valueOf(imss));
+				info=(float) (st*0.30);
+				Cin.setText(String.valueOf(info));
+				fondo=(float) (st*0.10);
+				Cfon.setText(String.valueOf(fondo));
+				
+			}
+		});
+		TiPa.setModel(new DefaultComboBoxModel(new String[] {"-", "Semanal", "Quincenal", "Mensual"}));
+		TiPa.setBounds(341, 57, 131, 22);
+		contentPane.add(TiPa);
+		
+		JLabel lblNewLabel_4 = new JLabel("Sueldo diario");
+		lblNewLabel_4.setBounds(10, 89, 97, 14);
+		contentPane.add(lblNewLabel_4);
+		
+		Csd = new JTextField();
+		Csd.setEditable(false);
+		Csd.setBounds(105, 86, 86, 20);
+		contentPane.add(Csd);
+		Csd.setColumns(10);
+		
+		JLabel lblNewLabel_5 = new JLabel("Fecha de inicio de pago");
+		lblNewLabel_5.setBounds(5, 114, 148, 14);
+		contentPane.add(lblNewLabel_5);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerDateModel(new Date(1665550800000L), null, null, Calendar.DAY_OF_YEAR));
+		spinner.setBounds(149, 111, 104, 20);
+		contentPane.add(spinner);
+		
+		JLabel lblNewLabel_6 = new JLabel("Fecha de termino");
+		lblNewLabel_6.setBounds(272, 114, 98, 14);
+		contentPane.add(lblNewLabel_6);
+		
+		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setModel(new SpinnerDateModel(new Date(1665550800000L), null, null, Calendar.DAY_OF_YEAR));
+		spinner_1.setBounds(380, 111, 104, 20);
+		contentPane.add(spinner_1);
+		
+		JLabel lblNewLabel_7 = new JLabel("Percepciones");
+		lblNewLabel_7.setBounds(35, 136, 83, 14);
+		contentPane.add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_8 = new JLabel("Sueldo");
+		lblNewLabel_8.setBounds(5, 155, 120, 14);
+		contentPane.add(lblNewLabel_8);
+		
+		JLabel lblNewLabel_9 = new JLabel("Premio por puntualidad");
+		lblNewLabel_9.setBounds(5, 179, 138, 14);
+		contentPane.add(lblNewLabel_9);
+		
+		JLabel lblNewLabel_10 = new JLabel("Premio por asistencia");
+		lblNewLabel_10.setBounds(5, 205, 138, 14);
+		contentPane.add(lblNewLabel_10);
+		
+		JLabel lblNewLabel_11 = new JLabel("Despensa");
+		lblNewLabel_11.setBounds(5, 230, 120, 14);
+		contentPane.add(lblNewLabel_11);
+		
+		JLabel lblNewLabel_12 = new JLabel("Total Percepciones");
+		lblNewLabel_12.setBounds(5, 269, 120, 14);
+		contentPane.add(lblNewLabel_12);
+		
+		Cst = new JTextField();
+		Cst.setEditable(false);
+		Cst.setBounds(138, 152, 97, 20);
+		contentPane.add(Cst);
+		Cst.setColumns(10);
+		
+		Cpp = new JTextField();
+		Cpp.setEditable(false);
+		Cpp.setBounds(138, 179, 97, 20);
+		contentPane.add(Cpp);
+		Cpp.setColumns(10);
+		
+		Cpa = new JTextField();
+		Cpa.setEditable(false);
+		Cpa.setBounds(138, 202, 97, 20);
+		contentPane.add(Cpa);
+		Cpa.setColumns(10);
+		
+		Cdes = new JTextField();
+		Cdes.setEditable(false);
+		Cdes.setBounds(138, 227, 97, 20);
+		contentPane.add(Cdes);
+		Cdes.setColumns(10);
+		
+		totPer = new JTextField();
+		totPer.setEditable(false);
+		totPer.setBounds(138, 266, 97, 20);
+		contentPane.add(totPer);
+		totPer.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Calcular");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				Persep=st+pp+pa+des;
+				totPer.setText(String.valueOf(Persep));
+				Deduc=isr+imss+info+fondo;
+				totDed.setText(String.valueOf(Deduc));
+				SuelPag=Persep-Deduc;
+				Cpag.setText(String.valueOf(SuelPag));
+			}
+		});
+		btnNewButton.setBounds(15, 303, 118, 23);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_13 = new JLabel("Deducciones");
+		lblNewLabel_13.setBounds(305, 136, 95, 14);
+		contentPane.add(lblNewLabel_13);
+		
+		JLabel lblNewLabel_14 = new JLabel("I.S.R. ");
+		lblNewLabel_14.setBounds(270, 155, 95, 14);
+		contentPane.add(lblNewLabel_14);
+		
+		JLabel lblNewLabel_15 = new JLabel("I.M.S.S");
+		lblNewLabel_15.setBounds(270, 179, 97, 14);
+		contentPane.add(lblNewLabel_15);
+		
+		JLabel lblNewLabel_16 = new JLabel("INFONAVIT ");
+		lblNewLabel_16.setBounds(270, 205, 97, 14);
+		contentPane.add(lblNewLabel_16);
+		
+		JLabel lblNewLabel_17 = new JLabel("Fondo de ahorro");
+		lblNewLabel_17.setBounds(270, 230, 97, 14);
+		contentPane.add(lblNewLabel_17);
+		
+		JLabel lblNewLabel_18 = new JLabel("Total Deducciones");
+		lblNewLabel_18.setBounds(252, 269, 113, 14);
+		contentPane.add(lblNewLabel_18);
+		
+		Cisr = new JTextField();
+		Cisr.setEditable(false);
+		Cisr.setBounds(375, 152, 97, 20);
+		contentPane.add(Cisr);
+		Cisr.setColumns(10);
+		
+		Cimss = new JTextField();
+		Cimss.setEditable(false);
+		Cimss.setBounds(375, 176, 97, 20);
+		contentPane.add(Cimss);
+		Cimss.setColumns(10);
+		
+		Cin = new JTextField();
+		Cin.setEditable(false);
+		Cin.setBounds(375, 202, 97, 20);
+		contentPane.add(Cin);
+		Cin.setColumns(10);
+		
+		Cfon = new JTextField();
+		Cfon.setEditable(false);
+		Cfon.setBounds(375, 227, 97, 20);
+		contentPane.add(Cfon);
+		Cfon.setColumns(10);
+		
+		totDed = new JTextField();
+		totDed.setEditable(false);
+		totDed.setBounds(380, 266, 97, 20);
+		contentPane.add(totDed);
+		totDed.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("Menu");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				Menu me=new Menu();
+				dispose();
+				me.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(368, 303, 104, 23);
+		contentPane.add(btnNewButton_1);
+		
+		JLabel lblSueldoAPagar = new JLabel("Sueldo a pagar");
+		lblSueldoAPagar.setBounds(107, 307, -30, 4);
+		contentPane.add(lblSueldoAPagar);
+		
+		JLabel lblSueldoAPagar_1 = new JLabel("Sueldo a pagar");
+		lblSueldoAPagar_1.setBounds(149, 307, 86, 14);
+		contentPane.add(lblSueldoAPagar_1);
+		
+		Cpag = new JTextField();
+		Cpag.setEditable(false);
+		Cpag.setBounds(244, 304, 97, 20);
+		contentPane.add(Cpag);
+		Cpag.setColumns(10);
+		
+		JButton btnNewButton_2 = new JButton("Salir");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				int o;
+				o=JOptionPane.showConfirmDialog(null, "¿Realmente deseas salir?");
+				if (o==0)
+				{
+					System.exit(0);
+				}
+			}
+		});
+		btnNewButton_2.setBounds(395, 27, 89, 23);
+		contentPane.add(btnNewButton_2);
+	}
+}
+
