@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Preguntas y corazón</title>
+    <style>
+      body {
+        background-color: #ffe6e6;
+        font-family: cursive;
+        color: #660066;
+      }
+
+      .pregunta {
+        display: none;
+      }
+
+      #pregunta1 {
+        display: block;
+      }
+
+      .boton {
+        background-color: #ffb3b3;
+        color: #660066;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .boton:hover {
+        background-color: #ff9999;
+      }
+
+      #corazon {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Preguntas y corazón</h1>
+    <div id="pregunta1" class="pregunta">
+      <h2>¿Cómo te llamas?</h2>
+      <input type="text" id="nombre">
+      <br>
+      <br>
+      <button class="boton" onclick="mostrarPregunta2()">Siguiente pregunta</button>
+    </div>
+    <div id="pregunta2" class="pregunta">
+      <h2>¿Cuál es tu color favorito?</h2>
+      <input type="text" id="color">
+      <br>
+      <br>
+      <button class="boton" onclick="mostrarPregunta3()">Siguiente pregunta</button>
+    </div>
+    <div id="pregunta3" class="pregunta">
+      <h2>¿Qué te hace feliz?</h2>
+      <input type="text" id="feliz">
+      <br>
+      <br>
+      <button class="boton" onclick="mostrarCorazon()">Mostrar corazón</button>
+    </div>
+    <div id="corazon">
+      <img src="corazon.png" alt="corazón">
+    </div>
+    <script>
+      function mostrarPregunta2() {
+        document.getElementById("pregunta1").style.display = "none";
+        document.getElementById("pregunta2").style.display = "block";
+      }
+
+      function mostrarPregunta3() {
+        document.getElementById("pregunta2").style.display = "none";
+        document.getElementById("pregunta3").style.display = "block";
+      }
+
+      function mostrarCorazon() {
+        document.getElementById("pregunta3").style.display = "none";
+        document.getElementById("corazon").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
